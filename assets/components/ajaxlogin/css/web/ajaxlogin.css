@@ -1,0 +1,23 @@
+.ajaxmodal-reply {
+    display: table;
+    height: 70px;
+    width: 100%;
+    text-align: center;
+}
+.ajaxmodal-reply span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.ajaxlogin-form {
+    padding: 20px;
+}
+.ajaxlogin-action {
+    width: 100%;
+}
+.ajaxlogin-error {
+    color: red;
+}
+.ajaxlogin-register .error {
+    color: red;
+    font-size: .85em;
+}
