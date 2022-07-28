@@ -1,5 +1,9 @@
 Changelog for ajaxLogin.
 
+1.0.4-pl
+==============
+- Add romanian lexicon
+
 1.0.3-pl
 ==============
 - Fix &submittedResourceId

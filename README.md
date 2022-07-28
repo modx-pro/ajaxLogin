@@ -1,7 +1,7 @@
 # ajaxLogin
 
 --------------------
-Author: Marat Marabar <marat@marabar.ru>
+Author: Marat Marabar 
 --------------------
 
 A basic Extra for MODx Revolution. 
