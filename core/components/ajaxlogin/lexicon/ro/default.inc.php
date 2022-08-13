@@ -13,8 +13,9 @@ $_lang['ajaxlogin_reset_pass'] = 'Resetați parola';
 $_lang['ajaxlogin_password'] = 'Parola';
 $_lang['ajaxlogin_password_confirm'] = 'Confirmați parola';
 $_lang['ajaxlogin_fullname'] = 'Nume';
-$_lang['ajaxlogin_register_btn'] = 'Înregistrare'; 
+$_lang['ajaxlogin_register_btn'] = 'Înregistrare';
 
+$_lang['ajaxlogin_forgot_pass_title'] = 'S-a comandat resetarea parolei';
 $_lang['ajaxlogin_forgot_pass_email'] = 'Pentru a reseta vechea parolă, trebuie să urmați linkul:';
 $_lang['ajaxlogin_forgot_pass_email_success'] = 'Dacă aveți succes, puteți utiliza următoarea parolă pentru a vă autentifica:';
 $_lang['ajaxlogin_forgot_pass_email_instr'] = 'Vă puteți schimba parola în contul personal.';

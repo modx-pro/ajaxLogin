@@ -14,6 +14,7 @@ $_lang['ajaxlogin_password'] = 'Пароль';
 $_lang['ajaxlogin_password_confirm'] = 'Подтвердите пароль';
 $_lang['ajaxlogin_fullname'] = 'Имя для сайта';
 
+$_lang['ajaxlogin_forgot_pass_title'] = 'Заказан сброс пароля';
 $_lang['ajaxlogin_forgot_pass_email'] = 'для сброса старого пароля, Вам необходимо перейти по ссылке:';
 $_lang['ajaxlogin_forgot_pass_email_success'] = 'В случае успеха вы можете использовать следующий пароль для входа:';
 $_lang['ajaxlogin_forgot_pass_email_instr'] = 'Заменить пароль можно в личном кабинете.';

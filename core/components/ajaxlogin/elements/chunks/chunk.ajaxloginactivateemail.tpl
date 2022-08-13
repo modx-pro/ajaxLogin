@@ -16,22 +16,19 @@
         <h2>[[++site_name]]</h2>
     </div>
 
-    <h4>Заказан сброс пароля</h4>
+    <h4>[[%ajaxlogin_forgot_pass_title]]</h4>
 
     <div class="al-body">
         <p>[[+username]], [[%ajaxlogin_register_activate_email_title]]</p>
-
         <p><a href="[[+confirmUrl]]">[[+confirmUrl]]</a></p>
-
         <p>[[%ajaxlogin_register_activate_email_body]]</p>
 
         <p>
-            <strong>Логин: <strong>[[+username]]<br />
+            <strong>Login: <strong>[[+username]]<br />
             <strong>Password:</strong> [[+password]]
         </p>
 
         <p style="font-size: 11px">[[%ajaxlogin_info_email_info]]</p>
-
         <p style="font-size: 11px">[[%ajaxlogin_info_email_foot]]</p>
     </div>
 

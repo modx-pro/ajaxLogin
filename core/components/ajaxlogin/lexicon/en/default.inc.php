@@ -14,6 +14,7 @@ $_lang['ajaxlogin_password'] = 'Password';
 $_lang['ajaxlogin_password_confirm'] = 'Confirm the password';
 $_lang['ajaxlogin_fullname'] = 'The name for the site';
 
+$_lang['ajaxlogin_forgot_pass_title'] = 'Password reset ordered';
 $_lang['ajaxlogin_forgot_pass_email'] = 'to reset old password, You need to click on the link:';
 $_lang['ajaxlogin_forgot_pass_email_success'] = 'If successful, you can use the following password to login:';
 $_lang['ajaxlogin_forgot_pass_email_instr'] = 'To change the password in your personal profile.';
