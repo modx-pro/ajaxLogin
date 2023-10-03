@@ -1,53 +1,53 @@
 <?php
 
-$chunks = array();
+$chunks = [];
 
-$tmp = array(
-	'ajaxLogin' => array(
+$tmp = [
+	'ajaxLoginTpl' => [
 		'file' => 'ajaxlogin',
 		'description' => '',
-	),
-    'ajaxLoginActivateEmail.tpl' => array(
+	],
+    'ajaxLoginActivateEmailTpl' => [
         'file' => 'ajaxloginactivateemail',
         'description' => '',
-    ),
-    'ajaxLoginErr' => array(
+	],
+    'ajaxLoginErrTpl' => [
         'file' => 'ajaxloginerr',
         'description' => '',
-    ),
-    'ajaxLoginForgotForm' => array(
+	],
+    'ajaxLoginForgotFormTpl' => [
         'file' => 'ajaxloginforgotform',
         'description' => '',
-    ),
-	'ajaxLoginForgotpassEmail' => array(
+	],
+	'ajaxLoginForgotPassEmailTpl' => [
 		'file' => 'chunk.ajaxloginforgotpassemail',
 		'description' => '',
-	),
-	'ajaxLoginForgotpassSent' => array(
+	],
+	'ajaxLoginForgotPassSentTpl' => [
 		'file' => 'ajaxloginforgotpasssent',
 		'description' => '',
-	),
-	'ajaxLoginModal' => array(
-		'file' => 'ajaxloginmodal',
-		'description' => '',
-	), 
-	'ajaxLoginForm' => array(
+	], 
+	'ajaxLoginFormTpl' => [
 		'file' => 'ajaxloginform',
 		'description' => '',
-	), 
-	'ajaxLoginRegisterForm' => array(
+	],
+	'ajaxLoginModalTpl' => [
+		'file' => 'ajaxloginmodal',
+		'description' => '',
+	],
+	'ajaxLoginRegisterFormTpl' => [
 		'file' => 'ajaxloginregisterform',
 		'description' => '',
-	),
-);
+	],
+];
 
 // Save chunks for setup options
-$BUILD_CHUNKS = array();
+$BUILD_CHUNKS = [];
 
 foreach ($tmp as $k => $v) {
 	/* @avr modChunk $chunk */
 	$chunk = $modx->newObject('modChunk');
-	$chunk->fromArray(array(
+	$chunk->fromArray([
 		'id' => 0,
 		'name' => $k,
 		'description' => @$v['description'],
@@ -55,7 +55,7 @@ foreach ($tmp as $k => $v) {
 		'static' => BUILD_CHUNK_STATIC,
 		'source' => 1,
 		'static_file' => 'core/components/' . PKG_NAME_LOWER . '/elements/chunks/chunk.' . $v['file'] . '.tpl',
-	), '', true, true);
+	], '', true, true);
 
 	$chunks[] = $chunk;
 

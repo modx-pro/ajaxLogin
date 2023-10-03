@@ -6,6 +6,10 @@ $modx->getService('error','error.modError');
 $modx->setLogLevel(modX::LOG_LEVEL_ERROR);
 $modx->setLogTarget('FILE');
 
+if (!empty($_REQUEST['ctx'])) {
+    $modx->switchContext($_REQUEST['ctx']);
+}
+
 $ajaxLogin = $modx->getService('ajaxlogin', 'ajaxLogin', $modx->getOption('ajaxlogin_core_path', null,
         $modx->getOption('core_path') . 'components/ajaxlogin/') . 'model/ajaxlogin/');
 

@@ -1,5 +1,4 @@
 <?php
-
 if (!$ajaxLogin = $modx->getService('ajaxlogin', 'ajaxLogin', $modx->getOption('ajaxlogin_core_path', null,
         $modx->getOption('core_path') . 'components/ajaxlogin/') . 'model/ajaxlogin/', $scriptProperties)
 ) {
@@ -69,7 +68,7 @@ if (stripos($chunk, '<!--ajaxLogin-->')) {
 }
 
 if (!isset($_SESSION['ajaxLogin'])) {
-    $_SESSION['ajaxLogin'] = array();
+    $_SESSION['ajaxLogin'] = [];
 }
 
 if ($_SESSION['ajaxLogin'] !== $scriptProperties) {
@@ -86,7 +85,8 @@ $modx->regClientHTMLBlock('<script>AjaxLogin.initialize({
     "actionUrl":"' . $ajaxLogin->config['actionUrl'] . '",
     "loading":"' . $ajaxLogin->config['loading'] . '",
     "redirectLoginResId":"' . $redirectLoginResId . '",
-    "redirectSubmitResId":"' . $submittedResourceId . '"});
+    "redirectSubmitResId":"' . $submittedResourceId . '",
+    "ctx":"' . $modx->context->key . '"});
 </script>');
 
 return $output;

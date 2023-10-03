@@ -19,8 +19,7 @@ $_lang['ajaxlogin_forgot_pass_email'] = 'to reset old password, You need to clic
 $_lang['ajaxlogin_forgot_pass_email_success'] = 'If successful, you can use the following password to login:';
 $_lang['ajaxlogin_forgot_pass_email_instr'] = 'To change the password in your personal profile.';
 $_lang['ajaxlogin_forgot_sent_email_title'] = 'Check your Inbox';
-$_lang['ajaxlogin_forgot_sent_email_body'] = "To Your email address <strong>[[+email]]</strong>"
-    . ' was sent instruction on further action.';
+$_lang['ajaxlogin_forgot_sent_email_body'] = 'To Your email address <strong>[[+email]]</strong> was sent instruction on further action.';
 
 $_lang['ajaxlogin_register_activate_email_title'] = 'Thank you for registering! To activate your account, please click on the following link:';
 $_lang['ajaxlogin_register_activate_email_body'] = 'This link will be valid for 3 hours.'
