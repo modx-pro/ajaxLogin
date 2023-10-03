@@ -1,93 +1,98 @@
-var AjaxLogin = {
+const AjaxLogin = {
+    actionType: '',
+    actionPatch: '',
+    redirectId: {},
+    ctx: '',
+    redirect: '',
+    loading: '',
+    selector: {
+        modalId: '#ajaxlogin-modal',
+        formBoxId: '#ajaxLoginForm',
+        classBtn: '.ajaxlogin-btn',
+        classItem: '.ajaxlogin',
+        classReply: '.ajaxmodal-reply'
+    },
+    modal: null,
+    formWrapper: null,
 
-    initialize: function(config)
-    {
-        actionPatch = config.actionUrl;
-        redirectLoginResId = config.redirectLoginResId;
-        redirectSubmitResId = config.redirectSubmitResId;
-        ctx = config.ctx;
-        redirect = '';
-        loading = '<div class="ajaxmodal-reply"><span><img src="' + config.loading + '" /></span></div>';
-        selector = {
-            modalId: '#ajaxlogin-modal',
-            formBoxId: '#ajaxLoginForm',
-            classBtn: '.ajaxlogin-btn',
-            classItem: '.ajaxlogin',
-            classReply: '.ajaxmodal-reply'
-        };
+    initialize(config) {
+        this.actionPatch = config.actionUrl;
+        this.redirectId['Login'] = this.redirectLoginResId;
+        this.redirectId['Register'] = this.redirectSubmitResId;
+        this.ctx = config.ctx;
+        this.loading = `<div class="ajaxmodal-reply"><span><img src="${config.loading}"></span></div>`;
+        this.modal = document.querySelector(this.selector.modalId);
+        this.formWrapper = document.querySelector(this.selector.formBoxId);
 
-        $(document).on('click', selector.classBtn, function(e)
-        {
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest(this.selector.classBtn);
+
+            if (!target) return;
             e.preventDefault();
-            value = $(this).data('ajaxlogin');
 
-            if (value) {
-                $(selector.classItem).removeClass('active')
-                $(selector.classItem + '-' + value).addClass('active');
-                AjaxLogin.setLoading(selector.formBoxId);
+            this.actionType = target.dataset.ajaxlogin;
 
-                var sendData = {
-                    action: value,
-                    ctx: ctx
-                };
+            if (!this.actionType) return;
 
-                if (value == 'Register') {
-                    sendData['get'] = 1
-                }
+            document.querySelectorAll(this.selector.classItem).forEach(item => item.classList.remove('active'));
+            document.querySelector(`${this.selector.classItem}-${this.actionType}`).classList.add('active');
+            this.setLoading();
 
-                AjaxLogin.send(sendData);
+            const sendData = new FormData();
+
+            sendData.append('action', this.actionType);
+            sendData.append('ctx', this.ctx);
+
+            if (this.actionType === 'Register') {
+                sendData.append('get', 1);
             }
+
+            this.send(sendData);
         });
+    },
 
-        $(document).on('submit', selector.modalId + ' form', function(e)
-        {
-            var form = $(this).serializeArray();
-            var sendData = {
-                action: value,
-                ctx: ctx
-            };
-
-            $.each(form, function(i, v)
-            {
-                sendData[v.name] = v.value;
-            });
-            if (sendData.action == 'Login') {
-                redirect = redirectLoginResId;
-            } else if (sendData.action == 'Register') {
-                redirect = redirectSubmitResId;
-            }
-            AjaxLogin.setLoading(selector.formBoxId);
-            AjaxLogin.send(sendData);
-
+    sendHandler() {
+        this.modal.querySelector('form')?.addEventListener('submit', (e) => {
             e.preventDefault();
-        })
+            const sendData = new FormData(e.target);
+
+            sendData.append('action', this.actionType);
+            sendData.append('ctx', this.ctx);
+
+            this.redirect = this.redirectId[this.actionType] || '';
+
+            this.setLoading();
+            this.send(sendData);
+        });
     },
 
-    setLoading: function(elem)
-    {
-        $(elem).html(loading);
+    setLoading() {
+        this.formWrapper.innerHTML = this.loading;
     },
 
-    send: function(sendData)
-    {
-        $.ajax({
-            type: 'POST',
-            url: actionPatch,
-            data: sendData,
-            dataType: 'json',
-            cache: false,
-            success: function(data) {
-                if (data['success'] == true) {
-                    $(selector.formBoxId).html(data['data']);
-                } else {
-                    var message = data['message'];
-                    $(selector.classReply).html('<span class="bg-danger text-danger">' + message + '</span>');
-                }
+    send(sendData) {
+        fetch(this.actionPatch, {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
             },
-            error: function(data){
-                if (redirect)
-                    location.href = redirect;
-            }
-        });
+            body: sendData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (typeof data !== 'object' || data.success !== true) {
+                    const message = data?.message || 'Unknown error when submitting form!';
+                    document.querySelector(this.selector.classReply).innerHTML = `<span class="text-danger">${message}</span>`;
+                    return;
+                }
+
+                this.formWrapper.innerHTML = data.data;
+            })
+            .catch(() => {
+                location.href = this.redirect || window.location.href;
+            })
+            .finally(() => {
+                this.sendHandler();
+            });
     }
 };
