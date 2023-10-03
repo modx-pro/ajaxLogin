@@ -20,8 +20,7 @@ $_lang['ajaxlogin_forgot_pass_email'] = 'Pentru a reseta vechea parolă, trebuie
 $_lang['ajaxlogin_forgot_pass_email_success'] = 'Dacă aveți succes, puteți utiliza următoarea parolă pentru a vă autentifica:';
 $_lang['ajaxlogin_forgot_pass_email_instr'] = 'Vă puteți schimba parola în contul personal.';
 $_lang['ajaxlogin_forgot_sent_email_title'] = 'Verifica-ti e-mail';
-$_lang['ajaxlogin_forgot_sent_email_body'] = "La adresa ta de e-mail <strong>[[+email]]</strong>"
-    . ' a trimis instrucțiuni despre cum să procedezi.';
+$_lang['ajaxlogin_forgot_sent_email_body'] = 'La adresa ta de e-mail <strong>[[+email]]</strong> a trimis instrucțiuni despre cum să procedezi.';
 
 $_lang['ajaxlogin_register_activate_email_title'] = 'Multumim pentru inregistrare! Pentru a vă activa contul, vă rugăm să faceți clic pe următorul link:';
 $_lang['ajaxlogin_register_activate_email_body'] = 'Acest link va fi valabil timp de 3 ore.'

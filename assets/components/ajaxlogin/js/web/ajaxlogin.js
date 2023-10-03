@@ -5,6 +5,7 @@ var AjaxLogin = {
         actionPatch = config.actionUrl;
         redirectLoginResId = config.redirectLoginResId;
         redirectSubmitResId = config.redirectSubmitResId;
+        ctx = config.ctx;
         redirect = '';
         loading = '<div class="ajaxmodal-reply"><span><img src="' + config.loading + '" /></span></div>';
         selector = {
@@ -26,7 +27,8 @@ var AjaxLogin = {
                 AjaxLogin.setLoading(selector.formBoxId);
 
                 var sendData = {
-                    action: value
+                    action: value,
+                    ctx: ctx
                 };
 
                 if (value == 'Register') {
@@ -41,7 +43,8 @@ var AjaxLogin = {
         {
             var form = $(this).serializeArray();
             var sendData = {
-                action: value
+                action: value,
+                ctx: ctx
             };
 
             $.each(form, function(i, v)

@@ -19,8 +19,7 @@ $_lang['ajaxlogin_forgot_pass_email'] = 'для сброса старого па
 $_lang['ajaxlogin_forgot_pass_email_success'] = 'В случае успеха вы можете использовать следующий пароль для входа:';
 $_lang['ajaxlogin_forgot_pass_email_instr'] = 'Заменить пароль можно в личном кабинете.';
 $_lang['ajaxlogin_forgot_sent_email_title'] = 'Проверьте свой почтовый ящик';
-$_lang['ajaxlogin_forgot_sent_email_body'] = "На Ваш электронный адрес <strong>[[+email]]</strong>"
-    . ' была отправлена инструкция о дальнейших действиях.';
+$_lang['ajaxlogin_forgot_sent_email_body'] = 'На Ваш электронный адрес <strong>[[+email]]</strong> была отправлена инструкция о дальнейших действиях.';
 
 $_lang['ajaxlogin_register_activate_email_title'] = 'Спасибо за регистрацию! Для активации своей учетной записи, пожалуйста, нажмите на следующую ссылку:';
 $_lang['ajaxlogin_register_activate_email_body'] = 'Эта ссылка будет действительна в течении 3 часов.'

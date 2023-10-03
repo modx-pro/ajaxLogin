@@ -9,7 +9,7 @@ if (!$transport->xpdo || !($transport instanceof xPDOTransport)) {
 $modx = $transport->xpdo;
 $packages = array(
     'Login' => array(
-        'version' => '1.9.10-pl',
+        'version' => '1.9.13-pl',
         'service_url' => 'modx.com',
     ),
 );

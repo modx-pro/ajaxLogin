@@ -4,6 +4,8 @@ class ajaxLogin
 {
     /** @var modX $modx */
     public $modx;
+    /** @var pdoTools $pdoTools */
+    public $pdoTools;
 
     var $value = array('Login', 'ForgotPassword', 'Register');
 
@@ -97,12 +99,12 @@ class ajaxLogin
             return $this->getParserTag($response);
 
         } else {
-            return $this->modx->log(modX::LOG_LEVEL_ERROR,
+            $this->modx->log(modX::LOG_LEVEL_ERROR,
                 $this->modx->lexicon('ajaxlogin_err_snippet') . $name
             );
         }
+        return false;
     }
-
 
     /**
      * Распарсить теги MODX при AJAX запросе
@@ -121,52 +123,18 @@ class ajaxLogin
     }
 
     /**
-     * @param $name
-     * @param array $property
-     * @return bool
+     * @param $chunk
+     * @param array $properties
+     * @return string
      */
-    public function getChunk($name, $property = array()) {
-        $chunk = null;
-
-        if (!isset($this->chunks[$name])) {
-            $chunk = $this->modx->getObject('modChunk', array('name' => $name));
-
-            if (empty($chunk) || !is_object($chunk)) {
-                $chunk = $this->_getTplChunk($name);
-
-                if ($chunk == false)
-                    return false;
-            }
-
-            $this->chunks[$name] = $chunk->getContent();
+    public function getChunk($chunk, $properties = array())
+    {
+        if ($this->pdoTools = $this->modx->getService('pdoTools')) {
+            $response = $this->pdoTools->getChunk($chunk, $properties);
         } else {
-            $o = $this->chunks[$name];
-            $chunk = $this->modx->newObject('modChunk');
-            $chunk->setContent($o);
+            $response = $this->modx->getChunk($chunk, $properties);
         }
-        $chunk->setCacheable(false);
-
-        return $chunk->process($property);
-    }
-
-    /**
-     * @param $name
-     * @return bool
-     */
-    private function _getTplChunk($name) {
-        $chunk = FALSE;
-        $postfix = 'chunk.'. strtolower($name). '.tpl';
-
-        $f = $this->config['chunksPath'] . $postfix;
-
-        if (file_exists($f)) {
-            $o = file_get_contents($f);
-            $chunk = $this->modx->newObject('modChunk');
-            $chunk->set('name', $name);
-            $chunk->setContent($o);
-        }
-
-        return $chunk;
+        return $response;
     }
 
     /**
