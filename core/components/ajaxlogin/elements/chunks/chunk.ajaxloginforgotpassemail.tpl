@@ -23,7 +23,7 @@
 
         <p><a href="[[+confirmUrl]]">[[+confirmUrl]]</a></p>
         <p>[[%ajaxlogin_forgot_pass_email_success]]</p>
-        <p><strong>Password:</strong> [[+password]]</p>
+        <p><strong>[[%ajaxlogin_password]]:</strong> [[+password]]</p>
         <p>[[%ajaxlogin_forgot_pass_email_instr]]</p>
         <p style="font-size: 11px">[[%ajaxlogin_info_email_info]]</p>
         <p style="font-size: 11px">[[%ajaxlogin_info_email_foot]]</p>

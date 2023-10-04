@@ -24,8 +24,8 @@
         <p>[[%ajaxlogin_register_activate_email_body]]</p>
 
         <p>
-            <strong>Login: <strong>[[+username]]<br />
-            <strong>Password:</strong> [[+password]]
+            <strong>[[%ajaxlogin_login]]: <strong>[[+username]]<br />
+            <strong>[[%ajaxlogin_password]]:</strong> [[+password]]
         </p>
 
         <p style="font-size: 11px">[[%ajaxlogin_info_email_info]]</p>

@@ -1,26 +1,20 @@
-<div class="pull-right">
-    <ul class="nav navbar-nav mb-links-block">
-        <li>
-            <a class="ajaxlogin-btn" data-toggle="modal" data-target="#ajaxlogin-modal" data-ajaxlogin="Login" href="#">
-                <span>[[%ajaxlogin_enter]]</span>
-            </a>
-        </li>
-    </ul>
-</div>
+<ul class="navbar-nav me-auto">
+    <li class="nav-item first active">
+        <a class="nav-link ajaxlogin-btn" data-bs-toggle="modal" data-bs-target="#ajaxlogin-modal" data-ajaxlogin="Login" href="#">
+            [[%ajaxlogin_enter]]
+        </a>
+    </li>
+</ul>
 
 <!--ajaxLogin-->
 
-<div class="pull-right">
-    <ul class="dropdown nav navbar-nav mb-links-block">
-        <li>
-        <a id="ajaxlogin-menu" role="button" data-toggle="dropdown" data-target="#" href="/">
-            <span>[[!+modx.user.id:userinfo=`fullname`]]</span> <i class="caret"></i>
+<ul class="navbar-nav me-auto">
+    <li class="nav-item dropdown">
+        <a id="ajaxlogin-menu" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            [[!+modx.user.id:userinfo=`fullname`]]
         </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-
-            <li role="presentation" class="divider"></li>
-            <li><a href="[[~[[*id]]? &service=`logout`]]">[[%ajaxlogin_exit]]</a></li>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="[[~[[*id]]? &service=`logout`]]">[[%ajaxlogin_exit]]</a></li>
         </ul>
-        </li>
-    </ul>
-</div>
+    </li>
+</ul>
