@@ -7,7 +7,7 @@ $_lang['ajaxlogin_auth'] = 'Authorization';
 $_lang['ajaxlogin_register'] = 'Registration';
 $_lang['ajaxlogin_close'] = 'Close';
 $_lang['ajaxlogin_forgot'] = 'Forgot password';
-$_lang['ajaxlogin_forgot_info'] = 'You need to specify username or password';
+$_lang['ajaxlogin_forgot_info'] = 'You need to specify username or email';
 $_lang['ajaxlogin_email'] = 'Email';
 $_lang['ajaxlogin_reset_pass'] = 'To reset your password';
 $_lang['ajaxlogin_password'] = 'Password';
@@ -30,7 +30,7 @@ $_lang['ajaxlogin_info_email_foot'] = 'This message has been generated automatic
     . "<br /><em>site administrator <a href=\"[[++site_url]]\">[[++site_name]]</a></em>";
 
 $_lang['ajaxlogin_err_separator'] = 'No required separator <!--ajaxLogin--> in the chunk';
-$_lang['ajaxlogin_err_get_form'] = 'Error getting form.';
+$_lang['ajaxlogin_err_get_form'] = 'Error getting form. Check package Login';
 $_lang['ajaxlogin_err_error'] = 'An unknown error occurred while receiving the form.';
 $_lang['ajaxlogin_err_snippet'] = 'Failed to find the desired snippet ';
 $_lang['ajaxlogin_err_not_parameter'] = 'Not specified';
