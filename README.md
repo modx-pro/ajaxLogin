@@ -4,4 +4,5 @@
 Author: Marat Marabar 
 --------------------
 
-A basic Extra for MODx Revolution. 
+Компонент ajaxLogin для MODX Revolution реализует регистрацию, авторизацию и сброс пароля на сайте через AJAX.
+Обязательно должен быть установлен пакет Login
